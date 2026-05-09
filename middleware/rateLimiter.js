@@ -1,13 +1,14 @@
 const rateLimit = require('express-rate-limit');
 
 const limiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 100, // max 100 requests per minute per IP
+  windowMs: 60 * 1000,
+  max: 100,
   message: {
     error: 'Too many requests, please try again after a minute'
   },
   standardHeaders: true,
-  legacyHeaders: false
+  legacyHeaders: false,
+  validate: { xForwardedForHeader: false }
 });
 
 module.exports = limiter;

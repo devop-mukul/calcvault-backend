@@ -7,7 +7,7 @@ const connectDB = require('./config/db');
 
 const app = express();
 // Trust the first proxy (Render, Heroku, etc.)
-app.set('trust proxy', true);
+app.set('trust proxy', 1);
 
 // Connect DB
 connectDB();
