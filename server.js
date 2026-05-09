@@ -6,12 +6,12 @@ const passport = require('./config/passport');
 const connectDB = require('./config/db');
 
 const app = express();
+// Trust the first proxy (Render, Heroku, etc.)
+app.set('trust proxy', true);
 
 // Connect DB
 connectDB();
 
-// Trust the first proxy (Render, Heroku, etc.)
-app.set('trust proxy', true);
 // Middleware
 app.use(helmet());
 app.use(cors({
