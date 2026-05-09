@@ -10,7 +10,8 @@ const app = express();
 // Connect DB
 connectDB();
 
-app.set('trust proxy', 1);
+// Trust the first proxy (Render, Heroku, etc.)
+app.set('trust proxy', true);
 // Middleware
 app.use(helmet());
 app.use(cors({
