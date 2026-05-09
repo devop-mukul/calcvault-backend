@@ -10,6 +10,7 @@ const app = express();
 // Connect DB
 connectDB();
 
+app.set('trust proxy', 1);
 // Middleware
 app.use(helmet());
 app.use(cors({
